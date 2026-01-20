@@ -1,6 +1,7 @@
 /**
  * FACTOWAR: MOTOR LÓGICO CENTRAL (v2.0 Final)
  * Integra: Modelo SEIZ, Sistema CRA (Resistencia), Tags de Noticia y Power-Ups.
+ * By Paul Caballero 
  */
 
 // --- CONSTANTES DE NIVELES (RESISTENCIA) ---
