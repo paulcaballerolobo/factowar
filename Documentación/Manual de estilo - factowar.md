@@ -2,6 +2,11 @@
  * By Paul Caballero
  * Este documento define la estética, los componentes visuales y la experiencia de usuario diseñada para generar una sensación táctica y de control sistémico.
 
+ ## Nota de alcance
+Este documento describe la visión conceptual y las mecánicas de FactoWar.
+No define una arquitectura técnica ni una implementación cerrada.
+Las decisiones técnicas deben surgir de la interpretación de este diseño.
+
 ---
 
 # 🎨 FACTOWAR: MANUAL DE ESTILO Y UX
@@ -50,10 +55,10 @@ FactoWar no es un juego plano; es un **simulador táctico de alta tensión**. La
 *   **Diseño del Slider:**
     *   **Pista (Track):** Línea gris.
     *   **Tirador (Thumb):** Círculo blanco con borde azul.
-*   **Funcionalidad (La Resistencia):**
-    *   Cuando el jugador arrastra el tirador, aparece una **"Barra Fantasma"** (Ghost Bar) semitransparente que se queda atrás.
-    *   *Significado:* La posición del tirador es lo que el jugador *quiere*. La barra fantasma es lo que el sistema *permite* (CRA).
-    *   *Feedback:* Si la resistencia es alta, el cursor vibra levemente.
+    *   **Funcionalidad (La Resistencia):**
+    *   **Feedback Visual:** Si la resistencia (CRA) es alta, el slider **no usa Ghost Bar**. En su lugar, el componente completo **"Glitchmea"** (vibración visual + cambio de color a gris/estática) de forma proporcional a la resistencia.
+    *   **Feedback Auditivo:** A mayor diferencia entre la intención del usuario y el valor real permitido, se escucha **ruido estático (interferencia)**.
+    *   **Educación:** Cada slider incluye un icono de **AYUDA (?)**. Al pasar el mouse, un tooltip explica el concepto educativo y su relación con las Fake News.
 
 ### Módulo D: Botonera Táctica (Power-Ups)
 *   **Ubicación:** Pie del Sidebar.

@@ -1,7 +1,10 @@
  * FACTOWAR: MANUAL DE USO DEL JUEGO (v1.2)
  * By Paul Caballero
  * Este manual te guiará a través de la interfaz de control, las mecánicas de propagación y las estrategias necesarias para salvar la red del colapso..
-   
+  ## Nota de alcance
+Este documento describe la visión conceptual y las mecánicas de FactoWar.
+No define una arquitectura técnica ni una implementación cerrada.
+Las decisiones técnicas deben surgir de la interpretación de este diseño. 
 ---
 
 ## 1. El Tablero de Control (Dashboard)

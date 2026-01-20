@@ -1,6 +1,11 @@
  * FACTOWAR: MOTOR LÓGICO CENTRAL (v2.0 Final)
  * By Paul Caballero
  * Este documento describe todas las instancias lógicas de funcionamiento del juego. Integra: Modelo SEIZ, Sistema CRA (Resistencia), Tags de Noticia y Power-Ups.
+
+ ## Nota de alcance
+Este documento describe la visión conceptual y las mecánicas de FactoWar.
+No define una arquitectura técnica ni una implementación cerrada.
+Las decisiones técnicas deben surgir de la interpretación de este diseño.
    
 ### 📂 Game Engine
 

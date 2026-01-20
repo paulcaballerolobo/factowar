@@ -2,6 +2,10 @@
  * By Paul Caballero
  * Este documento organiza todos los textos que el usuario verá en la interfaz, desde títulos narrativos hasta mensajes de error y frases de los "nodos" del canvas.
 ---
+## Nota de alcance
+Este documento describe la visión conceptual y las mecánicas de FactoWar.
+No define una arquitectura técnica ni una implementación cerrada.
+Las decisiones técnicas deben surgir de la interpretación de este diseño.
 
 # 📝 FACTOWAR: MAPA DE TEXTOS Y MICROCOPY
 

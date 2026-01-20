@@ -1,0 +1,130 @@
+/* src/components/Controls/ResistanceSlider.css */
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.slider-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.help-icon {
+    margin-left: 6px;
+    font-size: 0.8rem;
+    cursor: help;
+    color: #00FFFF;
+    border-bottom: 1px dotted #00FFFF;
+}
+
+.slider-input-wrapper {
+    position: relative;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Base Slider */
+.facto-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #333;
+    outline: none;
+    border-radius: 2px;
+    transition: all 0.1s;
+}
+
+.facto-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 2px solid #00FFFF;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.facto-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Glitch Effect Class */
+.glitching {
+    animation: shake 0.2s cubic-bezier(.36, .07, .19, .97) infinite;
+    filter: grayscale(100%) contrast(200%);
+}
+
+.glitching .facto-slider::-webkit-slider-thumb {
+    background: #888;
+    border-color: #F00;
+    border-radius: 0;
+    /* Square glitch */
+}
+
+.real-value-marker {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 12px;
+    background-color: #F00;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Keyframes */
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-2px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(2px, 0, 0);
+    }
+}
+
+/* Tooltip */
+.tooltip-content {
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    background: #000;
+    border: 1px solid #00FFFF;
+    padding: 8px;
+    width: 200px;
+    font-size: 0.75rem;
+    color: #fff;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.help-icon:hover+.tooltip-content {
+    opacity: 1;
+}
