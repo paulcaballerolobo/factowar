@@ -1,9 +1,7 @@
-/*
+
  * FACTOWAR: Diccionario Maestro de Variables (v1.0)
  * By Paul Caballero
- */
-
-Este documento técnico reúne las variables que componen la lógica del simulador, su definición matemática, su impacto en el modelo SEIZ y cómo interactúan entre sí bajo la arquitectura de "Resistencia Algorítmica".
+ * Este documento técnico reúne las variables que componen la lógica del simulador, su definición matemática, su impacto en el modelo SEIZ y cómo interactúan entre sí bajo la arquitectura de "Resistencia Algorítmica".
 
 ---
 
