@@ -1,12 +1,12 @@
-Aquí tienes el **Manual de Estilo UI/UX de FactoWar**.
-
-Este documento define la estética "Polarizor Style", los componentes visuales y la experiencia de usuario diseñada para generar una sensación táctica y de control sistémico.
+ * FACTOWAR: Manual de Estilo UI/UX (v1.0)
+ * By Paul Caballero
+ * Este documento define la estética, los componentes visuales y la experiencia de usuario diseñada para generar una sensación táctica y de control sistémico.
 
 ---
 
 # 🎨 FACTOWAR: MANUAL DE ESTILO Y UX
 
-## 1. Concepto Visual: "Polarizor Style"
+## 1. Concepto Visual
 FactoWar no es un juego plano; es un **simulador táctico de alta tensión**. La estética se inspira en centros de control de ciberseguridad y visualizadores de datos avanzados.
 
 *   **Atmósfera:** Limpia, profesional, con acentos de color vibrantes (glows).
