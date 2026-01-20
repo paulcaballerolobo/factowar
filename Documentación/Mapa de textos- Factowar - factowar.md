@@ -1,5 +1,7 @@
-Aquí tienes el **Mapa de Textos y Microcopy de FactoWar**.
-
+/**
+ * FACTOWAR: MAPA DE TEXTOS Y MICROCOPY (v1.0)
+ * By Paul Caballero
+ */
 Este documento organiza todos los textos que el usuario verá en la interfaz, desde títulos narrativos hasta mensajes de error y frases de los "nodos" del canvas.
 
 ---
