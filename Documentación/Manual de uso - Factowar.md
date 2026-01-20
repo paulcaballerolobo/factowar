@@ -1,6 +1,4 @@
-# 📘 FACTOWAR: MANUAL DE USO DEL OPERADOR
-
-¡Bienvenido, Operador de Red! Has sido designado para gestionar la integridad informativa en uno de los momentos más críticos de la era digital. **FactoWar** no es solo una simulación; es un entrenamiento táctico para entender cómo se propagan las ideas y cómo los algoritmos pueden ser tu mejor aliado o tu peor enemigo.
+# FACTOWAR: MANUAL DE USO DEL JUEGO
 
 Este manual te guiará a través de la interfaz de control, las mecánicas de propagación y las estrategias necesarias para salvar la red del colapso.
 
