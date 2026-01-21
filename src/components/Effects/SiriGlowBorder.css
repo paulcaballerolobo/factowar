@@ -1,0 +1,29 @@
+.siri-glow-border {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: var(--marquee-height);
+    pointer-events: none;
+    z-index: 9999;
+    border: 4px solid transparent;
+    box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+.siri-glow-idle {
+    animation: siri-pulse 2s ease-in-out infinite;
+    box-shadow: inset 0 0 30px rgba(239, 68, 68, 0.4),
+        inset 0 0 60px rgba(239, 68, 68, 0.2);
+}
+
+.siri-glow-alert {
+    animation: siri-pulse-alert 1s ease-in-out infinite;
+    box-shadow: inset 0 0 40px rgba(239, 68, 68, 0.6),
+        inset 0 0 80px rgba(239, 68, 68, 0.3);
+}
+
+.siri-glow-critical {
+    animation: siri-pulse-critical 0.5s ease-in-out infinite;
+    box-shadow: inset 0 0 50px rgba(239, 68, 68, 0.8),
+        inset 0 0 100px rgba(239, 68, 68, 0.4);
+}

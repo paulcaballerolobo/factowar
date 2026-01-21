@@ -1,0 +1,53 @@
+.marquee {
+    position: absolute;
+    /* Cambiado de fixed a absolute para estar dentro del canvas */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--marquee-height);
+    background: var(--color-black);
+    border-top: 3px solid var(--color-fuchsia);
+    /* Mantener borde */
+    overflow: hidden;
+    z-index: 100;
+    /* Z-index menor que modales pero sobre canvas */
+    display: flex;
+    align-items: center;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    animation: marquee-scroll 30s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-message {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.marquee-icon {
+    flex-shrink: 0;
+}
+
+/* Estados */
+.marquee-idle .marquee-message {
+    color: var(--color-cure-green);
+}
+
+.marquee-alert .marquee-message {
+    color: var(--color-warning-amber);
+}
+
+.marquee-critical .marquee-message {
+    color: var(--color-infection-red);
+    animation: glow-pulse 1s infinite;
+}

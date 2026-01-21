@@ -25,6 +25,19 @@ export const TEXT_ASSETS = {
             TOOLTIP: "Días simulados hasta que llega el Fact-Check oficial."
         }
     },
+    TACTICAL: {
+        TITLE: "ACCIONES TÁCTICAS",
+        INOCULATION: {
+            TITLE: "INOCULACIÓN DE RED",
+            DESC: "Despliega una campaña de prebunking para inmunizar nodos. Requiere tiempo de carga."
+        },
+        FRICTION: {
+            TITLE: "FRICCIÓN ALGORÍTMICA",
+            DESC: "Reduce la velocidad de propagación global en un 70% temporalmente."
+        },
+        EXECUTE: "EJECUTAR PROTOCOLO",
+        ABORT: "ABORTAR SIMULACIÓN"
+    },
     HUD: {
         HEALTH_LABEL: "INTEGRIDAD DEL SISTEMA",
         DAY_LABEL: "DÍA",
@@ -50,6 +63,18 @@ export const TEXT_ASSETS = {
             TITLE: "Identidad de Operador",
             SAVE_BTN: "GUARDAR RANGO",
             WARNING: "GUARDA ESTA LLAVE. FactoWar no guarda contraseñas."
+        },
+        POST_MORTEM: {
+            FACTO_LABEL: "REALIDAD DESBLOQUEADA",
+            METRICS_LABEL: "RECUENTO DE DAÑO",
+            SCORE_JUGADA_LABEL: "SCORE JUGADA",
+            SCORE_PARTIDA_LABEL: "SCORE PARTIDA",
+            CONTINUE: "SIGUIENTE NIVEL",
+            RETRY: "REINTENTAR",
+            MENU: "VOLVER AL MENÚ",
+            LESSON_LABEL: "RESUMEN TÁCTICO (LO APRENDIDO)",
+            MOTIVATION_SUCCESS: "Tu intervención ha protegido la integridad cognitiva del sector.",
+            MOTIVATION_FAILURE: "El caos informativo ha prevalecido. Analiza los patrones y reintenta."
         }
     }
 };

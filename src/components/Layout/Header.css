@@ -1,0 +1,97 @@
+/* HEADER - Estilo Impactante */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    background: var(--neutral-900);
+    z-index: 1000;
+    border-bottom: 1px solid var(--neutral-800);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+/* Logo - Link wrapper */
+.header-logo a {
+    text-decoration: none;
+}
+
+/* Logo Text */
+.logo-text {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--neutral-0);
+    text-transform: uppercase;
+}
+
+.logo-highlight {
+    color: var(--accent-secondary);
+    /* Fucsia */
+}
+
+/* Nav */
+.header-nav {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    /* Cápsula sutil */
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: #ec4899;
+    /* Fucsia requested */
+    text-transform: uppercase;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--neutral-0);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    background: var(--accent-secondary);
+    color: var(--neutral-0);
+    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+}
+
+.nav-separator {
+    display: none;
+    /* Ya no necesarios con el diseño de cápsula */
+}
+
+/* Logo derecho */
+.logo-igualdad {
+    height: 36px;
+    opacity: 0.8;
+    filter: grayscale(100%) brightness(200%);
+    /* Blanco puro */
+    transition: all 0.2s;
+}
+
+.logo-igualdad:hover {
+    opacity: 1;
+    filter: none;
+}

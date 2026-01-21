@@ -1,0 +1,193 @@
+/* ===================================
+   FACTOWAR - SYSTEM DESIGN v5.0
+   Style: HIGH IMPACT / TACTICAL SAAS
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  /* --- PALETA CROMÁTICA VIBRANTE --- */
+
+  /* Bases Neutras (con tinte azulado frío) */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+  --neutral-1000: #020617;
+  /* Casi negro */
+
+  /* Acentos de Impacto (Saturación Alta) */
+  --accent-primary: #3B82F6;
+  /* Azul Eléctrico */
+  --accent-secondary: #EC4899;
+  /* Fucsia Neón */
+  --accent-tertiary: #A855F7;
+  /* Púrpura Digital */
+  --accent-success: #10B981;
+  /* Verde Matrix */
+  --accent-warning: #F59E0B;
+  /* Ámbar Alerta */
+  --accent-danger: #EF4444;
+  /* Rojo Crítico */
+  --accent-cyan: #06B6D4;
+  /* Cyan Futuro */
+
+  /* Gradientes de Superficie (Sutiles pero con volumen) */
+  --bg-gradient-body: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+  --bg-gradient-card: linear-gradient(180deg, #FFFFFF 0%, #FAFAFA 100%);
+  --bg-gradient-dark: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+
+  /* Gradientes de Acento (Vibrantes) */
+  --grad-primary: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  --grad-secondary: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+  --grad-critical: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+  --grad-glow: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+
+  /* --- TIPOGRAFÍA ROBUSTA (ROBOTO / INTER) --- */
+  --font-mono: 'Inter', sans-serif;
+  --font-serif: 'Roboto', sans-serif;
+
+  /* --- SOMBRAS ENRIQUECIDAS (ELEVATION) --- */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-card:
+    0 4px 6px -1px rgba(15, 23, 42, 0.05),
+    0 10px 15px -3px rgba(15, 23, 42, 0.05);
+  --shadow-hover:
+    0 10px 25px -5px rgba(15, 23, 42, 0.1),
+    0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  --shadow-glow-primary: 0 0 20px rgba(59, 130, 246, 0.3);
+  --shadow-glow-danger: 0 0 20px rgba(239, 68, 68, 0.4);
+
+  /* --- DIMENSIONES Y BORDES --- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --border-subtle: 1px solid var(--neutral-200);
+  --border-highlight: 1px solid var(--accent-primary);
+
+  --header-height: 60px;
+  /* Reducido de 70px */
+  /* Un poco más alto para presencia */
+  --sidebar-width: 320px;
+  /* Ancho fijo mejor que porcentaje para consistencia */
+  --marquee-height: 40px;
+  /* Reducido de 48px */
+}
+
+/* --- RESET & BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: var(--bg-gradient-body);
+  color: var(--neutral-900);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- UTILIDADES DE TEXTO --- */
+.text-gradient {
+  background: var(--grad-glow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  color: var(--neutral-1000);
+}
+
+strong,
+b {
+  font-weight: 700;
+  color: var(--neutral-1000);
+}
+
+small {
+  font-size: 0.85em;
+  color: var(--neutral-500);
+}
+
+/* --- COMPONENTES GLOBALES --- */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-layout {
+  display: flex;
+  flex: 1;
+  margin-top: var(--header-height);
+  margin-bottom: var(--marquee-height);
+  height: calc(100vh - var(--header-height) - var(--marquee-height));
+  position: relative;
+}
+
+/* Scrollbars Premium */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}
+
+/* Animaciones de Utility */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+  }
+}

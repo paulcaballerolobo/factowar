@@ -1,0 +1,272 @@
+.hud-container {
+    width: 100%;
+    background: var(--neutral-0);
+    border-bottom: 1px solid var(--neutral-200);
+    box-shadow: var(--shadow-sm);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.hud-content {
+    padding: 16px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--neutral-100);
+}
+
+/* --- GRUPO SCORE (IZQ) --- */
+.primary-score-group {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.metric-icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--neutral-50);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.bg-accent-soft {
+    background: #FDF2F8;
+}
+
+/* Rosa muy suave */
+
+.metric-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--neutral-500);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.metric-value-huge {
+    font-family: var(--font-mono);
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.pts-suffix {
+    font-size: 14px;
+    color: var(--neutral-400);
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+/* --- MISION CENTRAL --- */
+.hud-mission-center {
+    text-align: center;
+}
+
+.mission-title {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-bottom: 4px;
+}
+
+.mission-subtitle {
+    font-family: var(--font-sans);
+    /* Fallback to system sans if needed, or use mono */
+    font-size: 13px;
+    color: var(--accent-secondary);
+    font-weight: 500;
+}
+
+/* --- TIEMPO (DER) --- */
+.time-group {
+    text-align: right;
+}
+
+.metric-value-large {
+    font-family: var(--font-mono);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--neutral-800);
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* --- BARRA INFERIOR --- */
+.hud-bottom-bar {
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: var(--neutral-50);
+}
+
+/* Controles Play/Pause */
+.sim-controls {
+    display: flex;
+    gap: 8px;
+    background: var(--neutral-0);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid var(--neutral-200);
+}
+
+.control-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: var(--neutral-500);
+}
+
+.control-btn:hover {
+    background: var(--neutral-100);
+    color: var(--neutral-900);
+}
+
+.control-btn.active {
+    background: var(--neutral-900);
+    color: var(--neutral-0);
+}
+
+/* Iconos CSS puros para botones */
+.icon-play {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent currentColor;
+}
+
+.icon-pause {
+    width: 8px;
+    height: 10px;
+    border-left: 3px solid currentColor;
+    border-right: 3px solid currentColor;
+}
+
+.icon-forward {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent currentColor;
+    display: flex;
+}
+
+/* Simplificado */
+
+.divider-vertical {
+    width: 1px;
+    height: 24px;
+    background: var(--neutral-200);
+}
+
+/* Progreso Días */
+.day-progress-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.day-label {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.progress-track {
+    height: 8px;
+    background: var(--neutral-200);
+    border-radius: 4px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--grad-secondary);
+    border-radius: 4px;
+}
+
+/* Métricas Secundarias */
+.secondary-metrics {
+    margin-left: auto;
+    display: flex;
+    gap: 32px;
+}
+
+.mini-metric {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-blue-soft {
+    background: #EFF6FF;
+}
+
+.bg-rose-soft {
+    background: #FFF1F2;
+}
+
+.bg-purple-soft {
+    background: #FAF5FF;
+}
+
+.text-blue {
+    color: var(--accent-primary);
+}
+
+.text-rose {
+    color: var(--accent-danger);
+}
+
+.text-purple {
+    color: var(--accent-tertiary);
+}
+
+.mini-metric-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--neutral-400);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.mini-value {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 700;
+}

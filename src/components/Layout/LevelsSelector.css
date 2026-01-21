@@ -1,0 +1,150 @@
+/* LEVELS CARD - Estilo "Platform" */
+.levels-selector {
+    /* Eliminado estilo de contenedor */
+    position: relative;
+    padding: 0;
+}
+
+.levels-header {
+    margin-bottom: 20px;
+    text-align: left;
+    /* Alineado a la izquierda */
+    position: relative;
+    z-index: 2;
+    padding-left: 8px;
+    /* Matching PowerUps padding */
+}
+
+/* Usando clases de utilidad similares a PowerUps pero definidas localmente si PowerUps no se carga globalmente,
+   pero el usuario pidió "Toma la clase Power-ups-title". Asumimos que PowerUps.css está cargado o duplicamos.
+   Para seguridad, DUPLICAMOS los estilos aquí para asegurar consistencia incluso si el orden de carga varía. */
+
+.levels-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    /* Matching PowerUps title */
+    font-weight: 700;
+    color: var(--neutral-900);
+    display: block;
+}
+
+.levels-subtitle {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    /* Matching PowerUps subtitle */
+    color: var(--neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* Card del Nivel Activo - IMPACTO VISUAL */
+.level-card-container {
+    flex: 1;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+    /* Sombra fuerte */
+}
+
+.level-card {
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 12px;
+    /* Espacio para el TAG a la izquierda */
+}
+
+.level-content {
+    padding: 24px;
+    padding-left: 32px;
+    /* Más padding izq para compensar tag */
+    color: var(--neutral-0);
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.level-number {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.level-name {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    /* Grande */
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.level-tagline {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+/* TAG LATERAL IZQUIERDO */
+.level-resistance-tag {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    bottom: 20px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0 8px 8px 0;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: none;
+    /* Quitale el UPPERCAPS */
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Navegación */
+.levels-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+/* Dots */
+.levels-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.level-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--neutral-200);
+    /* Fallback */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Color se inyectará inline */
+}
+
+.level-dot.active {
+    width: 24px;
+    /* Dot alargado moderno */
+    /* background se inyectará inline */
+}

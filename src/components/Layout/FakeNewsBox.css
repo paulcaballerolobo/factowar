@@ -1,0 +1,95 @@
+/* FAKENEWS BOX - Estilo "Impacto Directo" */
+.fakenews-box {
+    background: #ffaf00;
+    /* New Yellow Background */
+    border-radius: var(--radius-md);
+    padding: 16px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #000000;
+}
+
+/* Estado IDLE */
+.fakenews-box-idle {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffaf00;
+}
+
+.noise-char {
+    color: #000000;
+    /* Black text */
+    opacity: 0.6;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+/* Estado RUNNING */
+.fakenews-box-running {
+    background: #ffaf00;
+}
+
+.fakenews-context {
+    font-size: 10px;
+    font-weight: 900;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.fakenews-context::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+}
+
+.fakenews-headline {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.fakenews-storytelling {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: #000000;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    border-left: 3px solid #000000;
+    padding-left: 12px;
+}
+
+.fakenews-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fakenews-tag {
+    font-size: 10px;
+    font-family: var(--font-mono);
+    color: #ffaf00;
+    /* Yellow text on black bg */
+    background: #000000;
+    /* Black bg */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: lowercase;
+    /* Lowercase preference */
+}

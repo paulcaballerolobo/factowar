@@ -1,0 +1,256 @@
+.top-hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 100;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    backdrop-filter: blur(10px);
+}
+
+/* 1. Identity Sidebar */
+.sidebar-identity {
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+}
+
+.hud-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hud-avatar-container {
+    width: 36px;
+    height: 36px;
+    background: #000;
+    border: 1px solid #F0F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.hud-avatar-icon {
+    color: #F0F;
+    filter: drop-shadow(0 0 3px #F0F);
+}
+
+.hud-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.hud-user-name {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.hud-user-id {
+    font-size: 0.55rem;
+    color: #555;
+}
+
+/* 2. Central Metrics Bar (Inspired by reference image) */
+.hud-metrics-bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hud-day-compact {
+    display: flex;
+    flex-direction: column;
+    min-width: 80px;
+}
+
+.day-text {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.day-progress-bg {
+    width: 60px;
+    height: 4px;
+    background: #222;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.day-progress-fill {
+    height: 100%;
+    background: #F0F;
+    box-shadow: 0 0 5px #F0F;
+}
+
+.metric-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.metric-icon-box {
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color coding per metric */
+.metric-item.exposition .metric-icon-box {
+    color: #4466FF;
+    background: rgba(68, 102, 255, 0.1);
+}
+
+.metric-item.impact .metric-icon-box {
+    color: #FF2288;
+    background: rgba(255, 34, 136, 0.1);
+}
+
+.metric-item.polarization .metric-icon-box {
+    color: #6644FF;
+    background: rgba(102, 68, 255, 0.1);
+}
+
+.metric-item.skepticism .metric-icon-box {
+    color: #888888;
+    background: rgba(136, 136, 136, 0.1);
+}
+
+.metric-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-label {
+    font-size: 0.5rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.metric-value {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.metric-item.exposition .metric-value {
+    color: #4466FF;
+}
+
+.metric-item.impact .metric-value {
+    color: #FF2288;
+}
+
+.metric-item.polarization .metric-value {
+    color: #6644FF;
+}
+
+.metric-item.skepticism .metric-value {
+    color: #888;
+}
+
+/* 3. End Section (Score & Health) */
+.hud-end-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 220px;
+    justify-content: flex-end;
+}
+
+.hud-scores-compact {
+    display: flex;
+    gap: 15px;
+    border-right: 1px solid #222;
+    padding-right: 15px;
+}
+
+.score-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.mini-label {
+    font-size: 0.5rem;
+    color: #444;
+}
+
+.mini-value {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #0FF;
+}
+
+.mini-value.total {
+    color: #F0F;
+}
+
+.hud-health-mini {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+}
+
+.health-label-mini {
+    font-size: 0.5rem;
+    color: #444;
+    margin-bottom: 2px;
+}
+
+.health-bar-mini {
+    width: 100%;
+    height: 4px;
+    background: #111;
+    overflow: hidden;
+}
+
+.health-fill-mini {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.health-fill-mini.normal {
+    background: #0FF;
+}
+
+.health-fill-mini.warning {
+    background: #FF0;
+}
+
+.health-fill-mini.critical {
+    background: #F00;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}

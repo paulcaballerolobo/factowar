@@ -20,6 +20,13 @@ export const initializeNodes = (count: number, width: number, height: number): N
         // High resistance nodes are harder to infect
         const resistance = Math.random();
 
+        // Assign random archetype (50% man, 40% woman, 10% neutral)
+        const archetypeRoll = Math.random();
+        let archetype: 'man' | 'woman' | 'neutral' = 'man';
+        if (archetypeRoll < 0.5) archetype = 'man';
+        else if (archetypeRoll < 0.9) archetype = 'woman';
+        else archetype = 'neutral';
+
         nodes.push({
             id: i,
             x: getRandomPos(width),
@@ -30,7 +37,9 @@ export const initializeNodes = (count: number, width: number, height: number): N
             state: 'S', // All Start Susceptible
             incubationTimer: 0,
             resistance,
-            influenceRadius: 1.0
+            influenceRadius: 1.0,
+            archetype,
+            isKOL: false // Will be set by GameContext based on story tags
         });
     }
 

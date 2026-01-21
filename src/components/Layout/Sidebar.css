@@ -1,0 +1,25 @@
+/* Sidebar Container - Estilo Limpio */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100%;
+    background: var(--neutral-50);
+    /* Fondo muy suave */
+    border-right: 1px solid var(--neutral-200);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.02);
+    z-index: 400;
+}
+
+.sidebar-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Scrollbar invisible para look limpio */
+.sidebar::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}

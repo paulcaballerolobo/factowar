@@ -70,5 +70,26 @@ export const useGameLoop = (
         accumulatorRef.current = 0;
     }, []);
 
-    return { gameState, reset };
+    const triggerPowerUp = useCallback((type: 'friction' | 'campaign') => {
+        if (type === 'friction') {
+            stateRef.current = {
+                ...stateRef.current,
+                powerUps: {
+                    ...stateRef.current.powerUps,
+                    friction: { active: true, timeLeft: 300 } // ~10 seconds at 30fps
+                }
+            };
+        } else if (type === 'campaign') {
+            stateRef.current = {
+                ...stateRef.current,
+                powerUps: {
+                    ...stateRef.current.powerUps,
+                    campaign: { active: true, ready: false, progress: 0 }
+                }
+            };
+        }
+        setGameState(stateRef.current);
+    }, []);
+
+    return { gameState, reset, triggerPowerUp };
 };

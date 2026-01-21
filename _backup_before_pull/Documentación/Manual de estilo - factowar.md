@@ -417,8 +417,8 @@ Ubicado en la parte inferior.
 **Estilo:** Fondo Negro (Alto contraste con el resto blanco).
 
 ### Módulo: Marquee (Cinta)
-*   **Visual:** Texto Verde Neón (tipo terminal) desplazándose de derecha a izquierda.
-*   **Contenido:** Mensajes de estado del sistema ("ALERTA: PICO DE VIRALIDAD", "SISTEMA ESTABILIZADO").
+*   **Visual:** Texto desplazándose de derecha a izquierda.
+*   **Contenido:** Mensajes de estado del sistema.
 
 ---
 

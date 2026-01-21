@@ -1,5 +1,6 @@
-import type { Node, PlayerControls, NewsParams, GameState } from './types';
+import type { PlayerControls, NewsParams, GameState } from './types';
 import { LEVEL_CONFIG, SIMULATION_CONSTANTS } from '../config/GameConfig';
+import { applyPhysics } from './nodePhysics';
 
 // -------------------------------------------------------------
 // 1. RESISTANCE MODEL (THE FILTER)
@@ -53,24 +54,6 @@ export const calculateRealValues = (
     };
 };
 
-// -------------------------------------------------------------
-// 2. PHYSICS ENGINE (KINEMATICS)
-// -------------------------------------------------------------
-const updatePhysics = (node: Node, speed: number, width: number, height: number): void => {
-    // Move
-    node.x += node.vx * speed;
-    node.y += node.vy * speed;
-
-    // Bounce
-    if (node.x <= 0 || node.x >= width) {
-        node.vx *= -1;
-        node.x = Math.max(0, Math.min(node.x, width));
-    }
-    if (node.y <= 0 || node.y >= height) {
-        node.vy *= -1;
-        node.y = Math.max(0, Math.min(node.y, height));
-    }
-};
 
 // -------------------------------------------------------------
 // 3. SEIZ LOGIC ENGINE (EPIDEMIOLOGY)
@@ -111,12 +94,15 @@ export const processTick = (
         if (nextPowerUps.friction.timeLeft <= 0) nextPowerUps.friction.active = false;
     }
 
-    // We map to new array to avoid mutating previous state directly (React purity)
-    const nextNodes = nodes.map(node => {
-        const nextNode = { ...node };
+    // Apply social dynamics physics (replaces simple kinematics)
+    const nodesWithPhysics = applyPhysics(nodes, {
+        polarization: currentState.stats.polarization,
+        baseSpeed: moveSpeed
+    });
 
-        // --- A. PHYSICS ---
-        updatePhysics(nextNode, moveSpeed, SIMULATION_CONSTANTS.CANVAS_WIDTH, SIMULATION_CONSTANTS.CANVAS_HEIGHT);
+    // We map to new array to avoid mutating previous state directly (React purity)
+    const nextNodes = nodesWithPhysics.map(node => {
+        const nextNode = { ...node };
 
         // --- B. SEIZ TRANSITIONS ---
 
@@ -217,6 +203,23 @@ export const processTick = (
     }
     if (currentHealth <= 0) nextStatus = 'DEFEAT';
 
+    // --- 5. DETAILED METRICS ---
+    const totalNodes = SIMULATION_CONSTANTS.NODE_COUNT;
+    const exposureVal = (newExposed / totalNodes) * 100;
+    const impactVal = (newInfected / totalNodes) * 100;
+    const skepticismVal = (newRecovered / totalNodes) * 100;
+
+    // Polarization: Difference in infection levels between clusters + general tension
+    const blueNodes = nextNodes.filter(n => n.type === 'blue');
+    const fuchsiaNodes = nextNodes.filter(n => n.type === 'fuchsia');
+    const blueInfected = blueNodes.filter(n => n.state === 'I').length;
+    const fuchsiaInfected = fuchsiaNodes.filter(n => n.state === 'I').length;
+
+    const bRatio = blueInfected / (blueNodes.length || 1);
+    const fRatio = fuchsiaInfected / (fuchsiaNodes.length || 1);
+    const polBase = Math.abs(bRatio - fRatio) * 100;
+    const polarizationVal = Math.min(100, polBase + (newInfected * 0.2));
+
     const isNowChecked = time.day >= controls.delay;
 
     return {
@@ -232,7 +235,11 @@ export const processTick = (
             health: currentHealth,
             infectedCount: newInfected,
             exposedCount: newExposed,
-            recoveredCount: newRecovered
+            recoveredCount: newRecovered,
+            polarization: Math.floor(polarizationVal),
+            impact: Math.floor(impactVal),
+            exposure: Math.floor(exposureVal),
+            skepticism: Math.floor(skepticismVal)
         },
         status: nextStatus,
         isFactChecked: isNowChecked

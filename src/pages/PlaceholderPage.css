@@ -1,0 +1,25 @@
+.placeholder-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: var(--color-white);
+    padding: var(--spacing-2xl);
+}
+
+.placeholder-title {
+    font-family: var(--font-brand);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: var(--spacing-md);
+}
+
+.placeholder-subtitle {
+    font-family: var(--font-system);
+    font-size: 16px;
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

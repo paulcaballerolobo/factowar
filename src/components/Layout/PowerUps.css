@@ -1,0 +1,130 @@
+/* POWER UPS - Botones de Acción */
+.power-ups {
+    background: transparent;
+    border-top: 1px solid var(--neutral-200);
+    padding: 16px 0 0 0;
+}
+
+.power-ups-header {
+    margin-bottom: 16px;
+    text-align: left;
+    padding-left: 8px;
+}
+
+.power-ups-title {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--neutral-900);
+}
+
+.power-ups-subtitle {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.power-ups-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+/* Button Card */
+.power-up {
+    background: var(--neutral-0);
+    border: 1px solid var(--neutral-200);
+    border-radius: 16px;
+    padding: 16px;
+    text-align: left;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.power-up:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--neutral-300);
+}
+
+.power-up-header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.power-up-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Inset shadow para profundidad */
+}
+
+.campaign-icon {
+    background: #ECFDF5;
+    color: var(--accent-success);
+}
+
+.friction-icon {
+    background: #EFF6FF;
+    color: var(--accent-primary);
+}
+
+.power-up-name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--neutral-900);
+}
+
+.power-up-description {
+    font-size: 11px;
+    color: var(--neutral-500);
+    line-height: 1.3;
+}
+
+/* BARRA PROTAGONISTA */
+.power-bar-container {
+    height: 24px;
+    background: var(--neutral-100);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.power-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campaign-bar {
+    background: linear-gradient(90deg, #34D399, #10B981);
+}
+
+.friction-bar {
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+}
+
+.power-bar-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    color: var(--neutral-0);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+    z-index: 2;
+}

@@ -22,13 +22,30 @@ export interface Node {
     // Individual Traits
     resistance: number;      // 0.0-1.0 (Stubbornness)
     influenceRadius: number; // Multiplier for base radius
+
+    // Visual Representation
+    archetype: 'man' | 'woman' | 'neutral'; // Icon shape
+    isKOL: boolean; // Leader of Opinion (50% larger, gravity effect)
+}
+
+export interface NewsStory {
+    id: string;
+    theme: string;
+    storytelling: string;
+    headline: string;
+    tags: string[];
+    params: {
+        base_engagement: number;
+        base_controversy: number;
+    };
+    facto: string;
 }
 
 export interface NewsParams {
     baseEngagement: number;
     baseControversy: number;
     tags: {
-        moralOutrage: boolean;     // Increases P (Infection chance)
+        moralOutrage: boolean;     // Reduces P (Infection chance)
         hotContent: boolean;       // Bypasses E (Incubation)
         curiosityGap: boolean;     // Increases Beta (Contact) but lowers Incubation speed
         emotionalAlert: boolean;   // Reduces Moderation effectiveness
@@ -36,6 +53,13 @@ export interface NewsParams {
     };
     headline: string;
     context: string;
+    facto?: string; // Revealed at the end
+}
+
+export interface TickerMessage {
+    text: string;
+    type: 'info' | 'alert' | 'success';
+    condition?: string; // Logic trigger
 }
 
 export interface PlayerControls {
@@ -58,6 +82,10 @@ export interface GameState {
         infectedCount: number;
         exposedCount: number;
         recoveredCount: number;
+        polarization: number; // 0-100
+        impact: number;       // 0-100
+        exposure: number;     // 0-100
+        skepticism: number;   // 0-100
     };
     powerUps: {
         campaign: { active: boolean; ready: boolean; progress: number }; // ready=true when progress=100

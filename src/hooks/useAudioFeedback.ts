@@ -75,5 +75,52 @@ export const useAudioFeedback = () => {
         gainNodeRef.current.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
     }, []);
 
-    return { playStatic, stopStatic };
+    const playTone = useCallback((type: 'success' | 'failure') => {
+        if (!audioCtxRef.current) {
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            if (AudioContext) audioCtxRef.current = new AudioContext();
+        }
+
+        if (!audioCtxRef.current) return;
+        if (audioCtxRef.current.state === 'suspended') audioCtxRef.current.resume();
+
+        const ctx = audioCtxRef.current;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        const now = ctx.currentTime;
+
+        if (type === 'success') {
+            // Arpeggio: C major
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(523.25, now); // C5
+            osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
+            osc.frequency.setValueAtTime(783.99, now + 0.2); // G5
+            osc.frequency.setValueAtTime(1046.50, now + 0.3); // C6
+
+            gain.gain.setValueAtTime(0, now);
+            gain.gain.linearRampToValueAtTime(0.1, now + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+
+            osc.start(now);
+            osc.stop(now + 0.6);
+        } else {
+            // Dissonant descending
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(150, now);
+            osc.frequency.linearRampToValueAtTime(50, now + 0.5);
+
+            gain.gain.setValueAtTime(0, now);
+            gain.gain.linearRampToValueAtTime(0.1, now + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+
+            osc.start(now);
+            osc.stop(now + 0.5);
+        }
+    }, []);
+
+    return { playStatic, stopStatic, playTone };
 };

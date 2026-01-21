@@ -1,0 +1,118 @@
+/* PowerUpActions.css */
+
+.powerups-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.powerup-btn {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.powerup-btn:hover:not(:disabled) {
+    border-color: #0FF;
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.powerup-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.powerup-btn.active {
+    border-color: #F0F;
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.powerup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.powerup-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.powerup-icon {
+    color: #0FF;
+}
+
+.powerup-btn.active .powerup-icon {
+    color: #F0F;
+    animation: pulse-icon 1.5s infinite;
+}
+
+.powerup-description {
+    font-size: 0.65rem;
+    color: #888;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 4px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: #F0F;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.powerup-status {
+    font-size: 0.6rem;
+    color: #F0F;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 2px;
+}
+
+@keyframes pulse-icon {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Delicate lines effect */
+.powerup-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #0FF, transparent);
+    transition: left 0.5s;
+}
+
+.powerup-btn:hover::before {
+    left: 100%;
+}
